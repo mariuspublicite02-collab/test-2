@@ -3,64 +3,82 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marius & Sultana | Nuntă</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
+<title>Marius & Sultana | Nuntă 2026</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-  <div class="hero">
+<header class="hero">
+  <div class="hero-content">
     <h1>Marius & Sultana</h1>
     <p>💍 17 Noiembrie 2026</p>
     <div id="countdown"></div>
+    <a href="#rsvp" class="btn">Confirmă prezența</a>
   </div>
 </header>
 
-<section class="container">
-
-  <div class="card reveal">
-    <h2>⛪ Ceremonia religioasă</h2>
-    <p>Sala Regatului, Chișinău</p>
-    <p>Ora 12:00</p>
-    <a class="btn" target="_blank" href="https://maps.app.goo.gl/ez7nsCa8o6Ki2dWg8">Vezi harta</a>
-    <iframe src="https://www.google.com/maps?q=Sala%20Regatului%20Chisinau&output=embed"></iframe>
-  </div>
-
-  <div class="card reveal">
-    <h2>💒 Recepția</h2>
-    <p>Villa Garden, Chișinău</p>
-    <p>Ora 17:00</p>
-    <a class="btn" target="_blank" href="https://maps.app.goo.gl/865cWAvxAZa8pGpG7">Vezi harta</a>
-    <iframe src="https://www.google.com/maps?q=Villa%20Garden%20Chisinau&output=embed"></iframe>
-  </div>
-
-  <div class="card reveal">
-    <h2>📅 Program</h2>
-    <p>⛪ 12:00 - Ceremonia religioasă</p>
-    <p>📸 15:00 - Fotografii</p>
-    <p>💒 17:00 - Recepția</p>
-  </div>
-
-  <div class="card reveal">
-    <h2>✉️ RSVP</h2>
-    <button class="btn" onclick="openModal()">Confirmă prezența</button>
-  </div>
-
+<section class="section">
+  <h2>Dragi invitați</h2>
+  <p>Vă invităm să fiți alături de noi în ziua în care ne unim destinele și sărbătorim iubirea noastră.</p>
 </section>
 
-<div id="modal">
-  <div class="modal-content">
-    <h2>RSVP</h2>
-    <input id="name" placeholder="Nume">
-    <input id="guests" type="number" placeholder="Persoane">
-    <button class="btn" onclick="sendRsvp()">Trimite</button>
-    <p id="msg"></p>
-  </div>
-</div>
+<section class="section dark">
+  <h2>Locații</h2>
 
-<script src="js/script.js"></script>
+  <h3>⛪ Sala Regatului</h3>
+  <p>Chișinău • ora 12:00</p>
+  <iframe src="https://www.google.com/maps?q=Sala%20Regatului%20Chisinau&output=embed"></iframe>
+
+  <h3>💒 Villa Garden</h3>
+  <p>Chișinău • ora 17:00</p>
+  <iframe src="https://www.google.com/maps?q=Villa%20Garden%20Chisinau&output=embed"></iframe>
+</section>
+
+<section class="section">
+  <h2>Programul zilei</h2>
+
+  <div class="grid">
+    <div>12:00<br>Ceremonie</div>
+    <div>15:00<br>Fotografii</div>
+    <div>17:00<br>Recepție</div>
+    <div>19:00<br>Petrecere</div>
+  </div>
+</section>
+
+<section class="section dark" id="rsvp">
+  <h2>RSVP</h2>
+
+  <form action="https://formsubmit.co/mariuspublicite02@gmail.com" method="POST">
+
+    <input type="text" name="Nume" placeholder="Nume complet" required>
+
+    <select name="Participare" required>
+      <option value="">Participați?</option>
+      <option>Da</option>
+      <option>Nu</option>
+    </select>
+
+    <input type="number" name="Persoane" placeholder="Număr persoane">
+
+    <textarea name="Mesaj" placeholder="Mesaj (opțional)"></textarea>
+
+    <input type="hidden" name="_subject" value="RSVP Nunta Marius & Sultana">
+    <input type="hidden" name="_captcha" value="false">
+
+    <button type="submit">Trimite confirmarea</button>
+  </form>
+</section>
+
+<footer>
+Marius & Sultana • 17 Noiembrie 2026
+</footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>
