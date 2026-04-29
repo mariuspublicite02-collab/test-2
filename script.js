@@ -1,36 +1,32 @@
+// COUNTDOWN (Chișinău)
+const targetDate = new Date("2026-11-17T12:00:00+02:00").getTime();
 
-function openModal(){
-document.getElementById('modal').style.display='flex';
-}
+function updateCountdown(){
+const now = new Date().getTime();
+const diff = targetDate - now;
 
-function sendRsvp(){
-const name=document.getElementById('name').value;
-const guests=document.getElementById('guests').value||1;
-
-if(!name){
-document.getElementById('msg').innerText="Scrie numele";
+if(diff <= 0){
+document.getElementById("countdown").innerHTML = "💍 A venit ziua nunții!";
 return;
 }
 
-const email="mariuspublicite02@gmail.com";
-const subject=encodeURIComponent("RSVP Nunta Marius & Sultana");
-const body=encodeURIComponent(`Nume:${name}\nPersoane:${guests}`);
+const d = Math.floor(diff/(1000*60*60*24));
+const h = Math.floor((diff/(1000*60*60))%24);
+const m = Math.floor((diff/(1000*60))%60);
+const s = Math.floor((diff/1000)%60);
 
-window.location.href=`mailto:${email}?subject=${subject}&body=${body}`;
-document.getElementById('msg').innerText="Se deschide email...";
+document.getElementById("countdown").innerHTML =
+`${d} zile ${h} ore ${m} min ${s} sec`;
 }
 
-const obs=new IntersectionObserver(entries=>{
+setInterval(updateCountdown,1000);
+updateCountdown();
+
+// SCROLL ANIMATION
+const obs = new IntersectionObserver(entries=>{
 entries.forEach(e=>{
-if(e.isIntersecting)e.target.classList.add('show');
+if(e.isIntersecting) e.target.classList.add("show");
 });
 });
 
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-
-const wedding=new Date("2026-11-17").getTime();
-setInterval(()=>{
-const now=new Date().getTime();
-const d=wedding-now;
-document.getElementById('countdown').innerText=Math.floor(d/86400000)+" zile până la nuntă";
-},1000);
+document.querySelectorAll(".section").forEach(el=>obs.observe(el));
